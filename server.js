@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const taskRoutes = require('./routes/taskRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 
 // Tasks Route connect kar rahe hain
 app.use('/tasks', taskRoutes);
+app.use('/', authRoutes);
 
 // Port setup
 const PORT = process.env.PORT || 5000;
